@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+    body {
+        background-color: #66BB6A;
+    }
+    form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 600px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+    .form-group label {
+        margin-right: 40px;
+        flex-basis: 150px;
+    }
+    .form-group input {
+        flex-basis: 200px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="n">Nitrogen in Soil (N)</label>
+                <input type="number" class="form-control" id="n" name="n" placeholder="Enter N value">
+            </div>
+            <div class="form-group">
+                <label for="p">Phosphorous in Soil (P)</label>
+                <input type="number" class="form-control" id="p" name="p" placeholder="Enter P value">
+            </div>
+            <div class="form-group">
+                <label for="k">Potassium in Soil (K)</label>
+                <input type="number" class="form-control" id="k" name="k" placeholder="Enter K value">
+            </div>
+            <div class="form-group">
+                <label for="temp">Temperature (°C)</label>
+                <input type="float" class="form-control" id="temp" name="temp" placeholder="Enter temperature value">
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity in %</label>
+                <input type="float" class="form-control" id="humidity" name="humidity" placeholder="Enter Relative humidity in %">
+            </div>
+            <div class="form-group">
+                <label for="ph">pH Value of Soil</label>
+                <input type="float" step="0.01" class="form-control" id="ph" name="ph" placeholder="Enter pH value">
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall in mm (Annual)</label>
+                <input type="float" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall in mm">
+            </div>
+            <button type="submit" class="btn btn-primary">Recommend Crop</button>
+        </form>
+        {% if crop %}
+        <h2>Recommended Crop: {{ crop }}</h2>
+        {% endif %}
+
+        {% if result %}
+        <h1>The recommended crop is <strong>{{ result|title }}</strong></h1>
+        {% endif %}
+    </div>
+</body>
+</html>

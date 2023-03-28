@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Prediction</title>
+    <style>
+        body {
+            background-color: #66BB6A;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crop Yield Prediction</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="crop">Select a crop:</label>
+        <select name="crop" id="crop">
+            {% for crop in crops %}
+            <option value="{{ crop }}">{{ crop }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="area">Enter area in square meters:</label>
+        <input type="number" id="area" name="area" required>
+        <br><br>
+        <button type="submit">Predict Yield</button>
+    </form>
+    {% if yield_prediction %}
+    <h2>Yield Prediction:</h2>
+    <p>The predicted yield for {{ selected_crop }} on an area of {{ selected_area }} square meters is {{ yield_prediction }} kg.</p>
+    {% endif %}
+</body>
+</html>

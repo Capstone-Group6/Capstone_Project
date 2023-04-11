@@ -20,14 +20,14 @@
             {% endfor %}
         </select>
         <br><br>
-        <label for="area">Enter area in square meters:</label>
-        <input type="number" id="area" name="area" required>
+        <label for="area">Enter area in hectare(s):</label>
+        <input type="number" id="area" name="area" min="0.01" step="0.01" required>
         <br><br>
         <button type="submit">Predict Yield</button>
     </form>
     {% if yield_prediction %}
     <h2>Yield Prediction:</h2>
-    <p>The predicted yield for {{ selected_crop }} on an area of {{ selected_area }} square meters is {{ yield_prediction }} kg.</p>
+    <p>The predicted yield for {{ selected_crop }} on an area of {{ selected_area }} hectare(s) is {{ yield_prediction }} kg.</p>
     {% endif %}
 </body>
 </html>

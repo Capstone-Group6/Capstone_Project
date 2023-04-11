@@ -7,4 +7,6 @@ urlpatterns = [
     path('', login_page, name='login'),
     # When the user visits the 'signup/' URL, show them the signup page
     path('signup/', signup_page, name='signup'),
+    # When the user visits the 'signup/' URL, show them the signup page
+    path('home/', home_page, name='home'),
 ]

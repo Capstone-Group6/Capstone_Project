@@ -2,13 +2,13 @@ from django.shortcuts import render
 
 # Define the yield per square meter for each crop
 CROP_YIELDS = {
-    'wheat': 2.5,
-    'corn': 3.0,
-    'soybeans': 2.0,
-    'rice': 4.0,
-    'potatoes': 5.0,
-    'tomatoes': 6.0,
-    'peppers': 7.0,
+    'Apple': 19860,
+    'Beans': 1891,
+    'Grapes': 1330,
+    'Maize': 9263,
+    'Peas': 2291,
+    'Rice': 3000,
+    'Soyabeans': 3039,
 }
 
 
@@ -20,8 +20,8 @@ def crop_yield_prediction(request):
 
         # Calculate the predicted yield based on the crop and area
         if crop in CROP_YIELDS:
-            yield_per_sq_meter = CROP_YIELDS[crop]
-            predicted_yield = yield_per_sq_meter * area
+            yield_per_hectare = CROP_YIELDS[crop]
+            predicted_yield = yield_per_hectare * area
         else:
             predicted_yield = None
 

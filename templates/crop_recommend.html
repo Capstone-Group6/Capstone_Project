@@ -40,31 +40,31 @@
             {% csrf_token %}
             <div class="form-group">
                 <label for="n">Nitrogen in Soil (N)</label>
-                <input type="number" class="form-control" id="n" name="n" placeholder="Enter N value">
+                <input type="number" class="form-control" id="n" name="n" placeholder="Enter N value" required>
             </div>
             <div class="form-group">
                 <label for="p">Phosphorous in Soil (P)</label>
-                <input type="number" class="form-control" id="p" name="p" placeholder="Enter P value">
+                <input type="number" class="form-control" id="p" name="p" placeholder="Enter P value" required>
             </div>
             <div class="form-group">
                 <label for="k">Potassium in Soil (K)</label>
-                <input type="number" class="form-control" id="k" name="k" placeholder="Enter K value">
+                <input type="number" class="form-control" id="k" name="k" placeholder="Enter K value" required>
             </div>
             <div class="form-group">
                 <label for="temp">Temperature (°C)</label>
-                <input type="float" class="form-control" id="temp" name="temp" placeholder="Enter temperature value">
+                <input type="float" class="form-control" id="temp" name="temp" placeholder="Enter temperature value" required>
             </div>
             <div class="form-group">
                 <label for="humidity">Humidity in %</label>
-                <input type="float" class="form-control" id="humidity" name="humidity" placeholder="Enter Relative humidity in %">
+                <input type="float" class="form-control" id="humidity" name="humidity" placeholder="Enter Relative humidity in %" required>
             </div>
             <div class="form-group">
                 <label for="ph">pH Value of Soil</label>
-                <input type="float" step="0.01" class="form-control" id="ph" name="ph" placeholder="Enter pH value">
+                <input type="float" step="0.01" class="form-control" id="ph" name="ph" placeholder="Enter pH value" required>
             </div>
             <div class="form-group">
                 <label for="rainfall">Rainfall in mm (Annual)</label>
-                <input type="float" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall in mm">
+                <input type="float" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall in mm" required>
             </div>
             <button type="submit" class="btn btn-primary">Recommend Crop</button>
         </form>

@@ -1,3 +1,6 @@
+<!-- This is an HTML document for a signup page. It includes a background design with two shapes, a form for users to
+ enter their signup information, and a submit button. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
+    <!-- Define custom styles for the page -->
     <style media="screen">
+    /* Set default styles for all HTML elements */
       *,
 *:before,
 *:after{
@@ -16,9 +20,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+/* Set background color for the entire page */
 body{
     background-color: #66BB6A;
 }
+/* Define the background shapes */
 .background{
     width: 430px;
     height: 520px;
@@ -27,12 +33,14 @@ body{
     left: 50%;
     top: 50%;
 }
+/* Define the first background shape */
 .background .shape{
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
+/* Style the first background shape */
 .shape:first-child{
     background: linear-gradient(
         #1845ad,
@@ -41,6 +49,7 @@ body{
     left: -80px;
     top: -80px;
 }
+/* Define the second background shape */
 .shape:last-child{
     background: linear-gradient(
         to right,
@@ -50,6 +59,7 @@ body{
     right: -30px;
     bottom: -80px;
 }
+/* Style the signup form */
 form{
     height: 600px;
     width: 450px;
@@ -64,6 +74,7 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
+ /* Set default styles for all form elements */
 form *{
     font-family: 'Poppins',sans-serif;
     color: #080710;
@@ -71,6 +82,7 @@ form *{
     outline: none;
     border: none;
 }
+/* Style the form heading */
 form h3{
     font-size: 32px;
     font-weight: 500;
@@ -78,12 +90,15 @@ form h3{
     text-align: center;
 }
 
+/* Style the form labels */
 label{
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
 }
+
+/* Style the form inputs */
 input{
     display: block;
     height: 40px;
@@ -95,9 +110,13 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
+
+/* Styling for the input placeholders */
 ::placeholder{
     color: #080710;
 }
+
+/* Styling for the submit button */
 button{
     margin-top: 14px;
     width: 100%;
@@ -109,10 +128,14 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Styling for the social media divs */
 .social{
   margin-top: 30px;
   display: flex;
 }
+
+/* Styling for the individual social media divs */
 .social div{
   background: red;
   width: 150px;
@@ -122,23 +145,31 @@ button{
   color: #eaf0fb;
   text-align: center;
 }
+
+/* Styling for the social media divs on hover */
 .social div:hover{
   background-color: rgba(255,255,255,0.47);
 }
+
+/* Styling for the Facebook social media div */
 .social .fb{
   margin-left: 25px;
 }
+
+/* Styling for the social media icons */
 .social i{
   margin-right: 4px;
 }
 
     </style>
 </head>
+<!-- The HTML body section includes the form and its elements -->
 <body>
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
+    <!-- Signup form with appropriate input fields and labels -->
     <form action="" method="post">
         {% csrf_token %}
         <h3>Signup Here</h3>
@@ -155,8 +186,11 @@ button{
 
         <label for="password2">Confrom Password</label>
         <input type="password" placeholder="Confrom Password" id="password2" name="password2" required>
+
+        <!-- Submit button for the form -->
         <button type="submit">Signup</button>
 
+        <!-- Link for users with an existing account to access the login page -->
         <a href="{% url 'login' %}" >i have already account</a>
     </form>
 </body>

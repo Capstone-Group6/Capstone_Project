@@ -1,3 +1,7 @@
+<!-- This is an HTML template for a web page that predicts crop yield based on user input. The user can select a crop
+ and enter the area of land on which the crop will be grown. The predicted yield will be displayed once the user clicks
+  the "Predict Yield" button. -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,7 @@
     </style>
 </head>
 <body>
+    <a href="{% url 'home' %}">Home</a>
     <h1>Crop Yield Prediction</h1>
     <form method="POST">
         {% csrf_token %}
@@ -26,7 +31,7 @@
         <button type="submit">Predict Yield</button>
     </form>
     {% if yield_prediction %}
-    <h2>Yield Prediction:</h2>
+    <h2>Predicted Yield:</h2>
     <p>The predicted yield for {{ selected_crop }} on an area of {{ selected_area }} hectare(s) is {{ yield_prediction }} kg.</p>
     {% endif %}
 </body>

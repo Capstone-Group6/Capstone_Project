@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# Define the yield per square meter for each crop
+# Define the yield per hectare for each crop
 CROP_YIELDS = {
     'Apple': 19860,
     'Beans': 1891,
@@ -8,7 +8,7 @@ CROP_YIELDS = {
     'Maize': 9263,
     'Peas': 2291,
     'Rice': 3000,
-    'Soyabeans': 3039,
+    'Soybeans': 3039,
 }
 
 

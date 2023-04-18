@@ -1,3 +1,7 @@
+<!-- This is a HTML file for a Fertilizer Requirement Calculator web application. The application allows users to
+ select a crop and enter the area of land, and then calculates the required amount of nitrogen, phosphorous, and
+  potassium fertilizers for the given crop and area. -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +38,7 @@
     </style>
 </head>
 <body>
-    <a href="home/" class="home-button">Home</a>
+    <a href="{% url 'home' %}">Home</a>
     <h1>Fertilizer Requirement Calculator</h1>
     <form method="POST">
         {% csrf_token %}

@@ -1,13 +1,18 @@
+<!--This is an HTML template for an irrigation planning web application. It includes a form to select a crop and plantation
+date, and displays an irrigation schedule based on the selection. -->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Irrigation Planning</title>
     <style>
+        /* Set the background color and text alignment for the page */
         body {
             background-color: #66BB6A;
             text-align: center;
         }
 
+        /* Set the style for the unordered list that displays the irrigation schedule */
         ul {
             list-style-type: none;
             margin: 0;
@@ -19,6 +24,7 @@
             flex-direction: column;
         }
 
+        /* Set the style for each list item in the irrigation schedule */
         li {
             margin: 10px;
             font-size: 1.2em;
@@ -26,10 +32,14 @@
     </style>
 </head>
 <body>
+    <!-- Add a link to the home page -->
+    <a href="{% url 'home' %}">Home</a>
     <h1>Irrigation Planning</h1>
+    <!-- Create a form to select the crop and plantation date -->
     <form method="POST">
         {% csrf_token %}
         <label for="crop">Select a crop:</label>
+        <!-- Use a dropdown menu to select the crop -->
         <select name="crop" id="crop">
             {% for crop in crops %}
             <option value="{{ crop }}" {% if crop == selected_crop %}selected{% endif %}>{{ crop }}</option>
@@ -37,15 +47,20 @@
         </select>
         <br><br>
         <label for="plantation_date">Crop Plantation Date:</label>
+        <!-- Use a date input to select the plantation date -->
         <input type="date" id="plantation_date" name="plantation_date" value="{{ selected_date }}" required>
         <br><br>
+        <!-- Add a submit button to send the form data to the server -->
         <button type="submit">Submit</button>
     </form>
+    <!-- If a crop is selected, display its name and irrigation schedule -->
     {% if selected_crop %}
     <h2>Selected Crop: {{ selected_crop }}</h2>
     <h3>Irrigation Schedule:</h3>
+    <!-- Use an unordered list to display the irrigation schedule -->
     <ul>
         {% for schedule in irrigation_schedule %}
+        <!-- Display the date and corresponding text for each irrigation event in the schedule -->
         <li>{{ schedule.date }}: {{ schedule.text }}</li>
         {% endfor %}
     </ul>
